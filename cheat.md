@@ -21,6 +21,8 @@ export PATH=$PATH:$(pwd) / set PATH $PWD $PATH
 
 ## GIT
 
+curl --user email:password https://api.bitbucket.org/1.0/repositories/ --data name=REPO_NAME --data is_private='true' -v
+
 git init
 git add .
 git commit -am 'initial'
