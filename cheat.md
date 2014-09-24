@@ -21,7 +21,12 @@ export PATH=$PATH:$(pwd) / set PATH $PWD $PATH
 
 ## GIT
 
+git init
+git add .
+git commit -am 'initial'
 curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}'
+git remote add origin https://github.com/rhelsing/$repo_name.git
+git push origin master
 
 ## HEROKU
 
