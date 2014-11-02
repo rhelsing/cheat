@@ -55,3 +55,10 @@ if test -z $rvm_bin_path
   exec bash --login -c "exec fish"
 end
 
+## CONVERT FLAC TO MP3
+
+for file in *.flac
+      ffmpeg -i $file -acodec libmp3lame (basename $file).mp3
+      sleep 60
+end
+
