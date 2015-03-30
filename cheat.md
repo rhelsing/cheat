@@ -35,25 +35,29 @@ git push origin master
 rake assets:precompile RAILS_ENV=production
 heroku run rake db:migrate
 
-## RAILS SETUP ON NEW MACHINE
+## SETUP NEW MACHINE
 
-xcode
-gcc # if need command line tools
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
-curl -sSL https://get.rvm.io | bash -s stable --rails
-make rvm a function
 
-## .BASH_PROFILE
+brew install git
 
-set PATH /Users/ryanhelsing/Projects/bash/* $PATH
-export PATH=$PATH:/Applications/Other/calibre.app/Contents/MacOS
+brew install rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc  
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc  
+exec $SHELL  
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build  
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc  
+exec $SHELL
+rbenv install 2.1.2 -v
+rbenv global 2.1.2
+ruby -v
 
-#RVM LOAD IN FISH
+gem install bundler
+gem install rails
 
-if test -z $rvm_bin_path
-  exec bash --login -c "exec fish"
-end
+brew install zsh
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 ## CONVERT FLAC TO MP3
 
